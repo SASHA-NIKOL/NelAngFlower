@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container py-5">
+    <!-- Вступительный блок -->
+    <div class="p-4 p-md-5 mb-4 rounded text-body-emphasis text-bg-light shadow-sm">
+        <div class="col-lg-6 px-0">
+            <h1 class="display-4 fst-italic">Добро пожаловать в NelAng!</h1>
+            <p class="lead my-3">Именно у нас вы сможете подобрать букет на любой повод! Креативные идеи? Лучшие цены? Отзывчивый коллектив? <br> Если вы искали это, то попали в нужное место!</p>
+        </div>
+    </div>
+
+    <!-- Категории и товары -->
+    {% for category in categories %}
+        <hr class="featurette-divider">
+        <h3 id="category-{{ category.id }}" class="mt-5 mb-4 fw-semibold text-center">{{ category.name }}</h3>
+        <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-3">
+            {% for product in products if product.category_id == category.id %}
+                <div class="col">
+                    <div class="card h-100 shadow-sm product-card">
+                        <img src="{{ product.image }}" class="card-img-top" alt="{{ product.name }}">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">{{ product.name }}</h5>
+                            <p class="card-text text-muted mb-2">Цена: {{ product.price }} ₽</p>
+                            <a href="{{ url_for('add_to_cart', product_id=product.id) }}" class="btn btn-primary btn-sm w-100">В корзину</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}

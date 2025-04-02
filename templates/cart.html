@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container py-5">
+    <h2 class="mb-4 fw-bold text-center">Ваша корзина</h2>
+    <hr class="featurette-divider">
+
+    {% if cart_items %}
+        <div class="table-responsive">
+            <table class="table table-hover align-middle table-striped shadow-sm">
+                <thead class="table-light">
+                    <tr>
+                        <th scope="col">Товар</th>
+                        <th scope="col">Цена</th>
+                        <th scope="col">Количество</th>
+                        <th scope="col">Сумма</th>
+                        <th scope="col">Действие</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item, quantity, subtotal in cart_items %}
+                        <tr>
+                            <td>{{ item.name }}</td>
+                            <td>{{ item.price }} ₽</td>
+                            <td>{{ quantity }}</td>
+                            <td>{{ subtotal }} ₽</td>
+                            <td>
+                                <a href="{{ url_for('remove_from_cart', product_id=item.id) }}"
+                                   class="btn btn-outline-danger btn-sm">Убрать</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="d-flex justify-content-between align-items-center mt-4">
+            <h4 class="fw-bold">Итого: {{ total_price }} ₽</h4>
+            <div>
+                <a href="{{ url_for('index') }}" class="btn btn-outline-secondary btn-sm me-2">Продолжить покупки</a>
+                <a href="{{ url_for('checkout') }}" class="btn btn-primary btn-sm">Оформить заказ</a>
+            </div>
+        </div>
+    {% else %}
+        <div class="alert alert-info text-center shadow-sm" role="alert">
+            Ваша корзина пуста. <a href="{{ url_for('index') }}" class="alert-link">Вернуться к покупкам</a>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

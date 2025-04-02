@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container py-5">
+    <h2 class="mb-4 fw-bold text-center">Отзывы</h2>
+    <hr class="featurette-divider">
+
+    {% if reviews %}
+        <div class="row">
+            {% for review in reviews %}
+                <div class="col-md-6 mb-4">
+                    <div class="card shadow-sm review-card">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ review.name }}</h5>
+                            <p class="card-text">{{ review.review }}</p>
+                            <p class="text-muted small">Дата: {{ review.date }}</p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p class="text-muted text-center">Пока нет отзывов. Будьте первым!</p>
+    {% endif %}
+
+    <hr class="featurette-divider">
+    <h4 class="mt-5 fw-semibold text-center">Оставить отзыв</h4>
+    <form method="POST" class="p-4 bg-white rounded shadow-sm col-md-8 mx-auto">
+        <div class="mb-3">
+            <label for="name" class="form-label fw-semibold">Ваше имя</label>
+            <input type="text" class="form-control" id="name" name="name" required>
+        </div>
+        <div class="mb-3">
+            <label for="review" class="form-label fw-semibold">Отзыв</label>
+            <textarea class="form-control" id="review" name="review" rows="3" required></textarea>
+        </div>
+        <div class="mb-3">
+            <label for="date" class="form-label fw-semibold">Дата</label>
+            <input type="date" class="form-control" id="date" name="date" required>
+        </div>
+        <button type="submit" class="btn btn-primary btn-sm">Отправить</button>
+    </form>
+</div>
+{% endblock %}

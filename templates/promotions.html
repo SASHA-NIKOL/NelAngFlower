@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container py-5">
+    <h2 class="mb-4 fw-bold text-center">Акции</h2>
+    <hr class="featurette-divider">
+    <div class="table-responsive">
+        <table class="table table-striped table-hover shadow-sm">
+            <thead class="table-light">
+                <tr>
+                    <th scope="col">Акция</th>
+                    <th scope="col">Описание</th>
+                    <th scope="col">Условия</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>День рождения</td>
+                    <td>Скидка 15% на любой букет</td>
+                    <td>Предъявите документ, подтверждающий дату рождения</td>
+                </tr>
+                <tr>
+                    <td>8 марта</td>
+                    <td>Бесплатная доставка при заказе от 2000 ₽</td>
+                    <td>Действует с 6 по 8 марта</td>
+                </tr>
+                <tr>
+                    <td>Пенсионная</td>
+                    <td>Бесплатная доставка при заказе от 2000 ₽</td>
+                    <td>Предъявите пенсионное удостоверение</td>
+                </tr>
+                <tr>
+                    <td>Каждый 5-й букет</td>
+                    <td>Скидка 20% на пятый заказ</td>
+                    <td>При накоплении 4 заказов в течение года</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,226 @@
+/* Основные стили */
+body {
+    background-color: #fdfdfd;
+    font-family: 'Arial', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Навигация */
+.navbar {
+    background-color: #fff;
+    border-bottom: 1px solid #ff55a4;
+}
+
+.navbar-brand {
+    color: #ff69b4 !important;
+}
+
+.nav-link {
+    padding: 0.5rem 1rem;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #ff69b4;
+}
+
+.navbar-nav {
+    gap: 15px;
+}
+
+.cart-link {
+    background-color: #ffffff;
+    color: #000000 !important;
+    border-radius: 8px;
+    padding: 0.5rem 1.2rem;
+    border: 1px solid #ff55a4;
+    transition: background-color 0.3s;
+}
+
+.cart-link:hover {
+    background-color: #ffffff;
+    color: #000000 !important;
+}
+
+.cart-link .badge {
+    background-color: #ff11c7;
+    color: #ffffff;
+}
+
+.badge {
+    font-size: 0.75rem;
+    vertical-align: middle;
+}
+
+/* Вступительный блок */
+.text-bg-light {
+    background-color: #f8f9fa !important;
+    border-radius: 15px;
+    transition: transform 0.3s ease;
+}
+
+.text-bg-light:hover {
+    transform: translateY(-5px);
+}
+
+.display-4 {
+    color: #dd0076;
+    font-weight: 600;
+}
+
+.lead {
+    color: #666;
+}
+
+/* Карточки товаров */
+.product-card {
+    border: none;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    max-width: 250px;
+    margin: 0 auto;
+}
+
+.product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card-img-top {
+    height: 180px;
+    object-fit: cover;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+.card-body {
+    padding: 1rem;
+}
+
+.card-title {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.card-text {
+    font-size: 0.9rem;
+    color: #888;
+}
+
+/* Карточки отзывов */
+.review-card {
+    border: none;
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+}
+
+.review-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Таблицы */
+.table {
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.table-hover tbody tr:hover {
+    background-color: #f8f9fa;
+}
+
+/* Формы */
+.form-control {
+    border-radius: 8px;
+    font-size: 0.95rem;
+}
+
+.form-control:focus {
+    border-color: #ff69b4;
+    box-shadow: 0 0 0 0.2rem rgba(255, 105, 180, 0.25);
+}
+
+/* Кнопки */
+.btn-primary {
+    background-color: #ff69b4;
+    border-color: #ff69b4;
+    border-radius: 8px;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-primary:hover {
+    background-color: #ff1493;
+    border-color: #ff1493;
+    transform: scale(1.05);
+}
+
+.btn-outline-danger {
+    font-size: 0.85rem;
+    padding: 0.3rem 0.6rem;
+}
+
+.btn-outline-secondary {
+    font-size: 0.85rem;
+    padding: 0.3rem 0.6rem;
+}
+
+/* Разделители */
+.featurette-divider {
+    border-color: #ddd;
+    margin: 2rem 0;
+}
+
+/* Футер */
+footer {
+    background-color: #fff;
+    border-top: 1px solid #f0f0f0;
+}
+
+main {
+    padding-top: 70px;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .card-img-top {
+        height: 150px;
+    }
+    .card-title {
+        font-size: 1rem;
+    }
+    .btn-primary, .btn-outline-danger, .btn-outline-secondary {
+        padding: 0.3rem 0.6rem;
+        font-size: 0.85rem;
+    }
+    main {
+        padding-top: 60px;
+    }
+    .navbar-nav {
+        gap: 5px;
+        text-align: center;
+    }
+    .cart-link {
+        display: inline-block;
+        margin: 5px auto;
+    }
+}
+
+@media (max-width: 576px) {
+    .display-4 {
+        font-size: 2.5rem;
+    }
+    .lead {
+        font-size: 1rem;
+    }
+    .product-card, .review-card {
+        max-width: 100%;
+    }
+}
